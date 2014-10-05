@@ -32,7 +32,7 @@ void setup() {
   smooth();
   noLoop();
  
-  beginRecord(PDF, "Monthly_01.pdf"); 
+  beginRecord(PDF, "BaCharts.pdf"); 
   noStroke();
   
   // load table

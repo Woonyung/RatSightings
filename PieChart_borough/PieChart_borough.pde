@@ -41,7 +41,7 @@ Table data;
 
 
 void setup() {
-  size(800, 1400);
+  size(800, 3000);
   background(255);
   smooth();
   noLoop();
