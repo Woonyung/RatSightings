@@ -13,12 +13,12 @@ import processing.pdf.*;
 
 
 //===========color codes ==============//
-color color0 = color(255,255,255); // just for placeholder
-color color1 = color(255,0,0); // red
-color color2 = color(255,255,0); // yellow
-color color3 = color(0,255,0); // green
-color color4 = color(0, 255, 255); // cyan
-color color5 = color(0, 0, 255); // blue
+color color0 = color(114, 169, 234); // dark blue
+color color1 = color(234, 201, 253); // pale purple
+color color2 = color(164, 194, 253); // pale blue
+color color3 = color(102, 194, 252); // sky blue
+color color4 = color(248, 252, 255); // grayish white
+color color5 = color(0, 0, 255); // for placeholder
 
 
 color[] colorArray = { color0 , color1, color2, color3, color4, color5};
@@ -60,7 +60,7 @@ void drawBarChart(TableRow data, float y){
   // looping through all the column and make the bar charts
   for ( int i = 0; i < data.getColumnCount()-1; i++){
     w = data.getFloat(i); //
-    mappedW = map(w, 0, 10000, 0, 500); // actual bar 
+    mappedW = map(w, 0, 10000, 0, 300); // actual bar 
     startX = endX;
     
     endX += mappedW;
