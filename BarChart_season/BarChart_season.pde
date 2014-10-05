@@ -13,22 +13,16 @@ import processing.pdf.*;
 
 
 //===========color codes ==============//
-color color0 = color(255); // just for placeholder
-color color1 = color(114, 169, 234); // dark blue
-color color2 = color(234, 201, 253); // pale purple
-color color3 = color(164, 194, 253); // pale blue
-color color4 = color(102, 194, 252); // sky blue
-color color5 = color(248, 252, 255); // grayish white
+color color0 = color(255,255,255); // just for placeholder
+color color1 = color(255,0,0); // red
+color color2 = color(255,255,0); // yellow
+color color3 = color(0,255,0); // green
+color color4 = color(0, 255, 255); // cyan
+color color5 = color(0, 0, 255); // blue
 
 
 color[] colorArray = { color0 , color1, color2, color3, color4, color5};
 
-
-//====== variables for pie graphs ===============//
-float startAngle = 0;
-float actualAngles = 0;
-float endAngle = 0;
-float num = 0;
 Table data;
 
 
@@ -43,39 +37,38 @@ void setup() {
   
   // load table
   //loadData();
-  data = loadTable("season_test.csv", "header");
-  float x = 30;
+  data = loadTable("Season1.csv", "header");
   float y = 100;
   for (TableRow row : data.rows()) { // load table and loop through each rows
-    drawBarChart(row, x, y); // everytime you draw the pie chart
+    drawBarChart(row,y); // everytime you draw the pie chart
+
     y= y+ 100;
   }
   
 }
 
 
-void drawBarChart(TableRow data, float x, float y){
+void drawBarChart(TableRow data, float y){
   float total = 0;
   
   float w = 0;
   float mappedW = 0;
-  
-  for ( int i = 0; i < data.getColumnCount(); i++){
-    //total = data.getFloat("Total");
-    println("Total: " + total);
-  }
-  
+  float startX = 30;
+  float endX = 30; 
+
   
   // looping through all the column and make the bar charts
-  for ( int i = 1; i < data.getColumnCount()-1; i++){
+  for ( int i = 0; i < data.getColumnCount()-1; i++){
     w = data.getFloat(i); //
-    mappedW = map(w, 0, 10000, 0, 300);
-  
-    println(w + " is mapped into " + mappedW);
+    mappedW = map(w, 0, 10000, 0, 500); // actual bar 
+    startX = endX;
     
+    endX += mappedW;
+
+    println(i + ": " + w + " is mapped into " + mappedW);
     noStroke();
     fill(colorArray[i]);
-    rect(x+(i*w),y,w, 30);
+    rect(startX, y, mappedW, 10);
   }
   
 }
