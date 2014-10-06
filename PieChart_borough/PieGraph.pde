@@ -1,5 +1,5 @@
 void loadData(){
-  data = loadTable("Monthly_1.csv", "header");
+  data = loadTable("Monthly.csv", "header");
   float x = 100;
   float y = 100;
   for (TableRow row : data.rows()) { // load table and loop through each rows
